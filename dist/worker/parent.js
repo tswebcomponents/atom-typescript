@@ -39,37 +39,37 @@ function catchCommonErrors(func) {
         return Promise.reject(err);
     }); };
 }
-var projectService = require('../main/lang/projectService');
-exports.echo = catchCommonErrors(parent.sendToIpc(projectService.echo));
-exports.quickInfo = catchCommonErrors(parent.sendToIpc(projectService.quickInfo));
-exports.build = catchCommonErrors(parent.sendToIpc(projectService.build));
-exports.errorsForFileFiltered = catchCommonErrors(parent.sendToIpc(projectService.errorsForFileFiltered));
-exports.getCompletionsAtPosition = parent.sendToIpcOnlyLast(projectService.getCompletionsAtPosition, {
+exports.projectService = require('../main/lang/projectService');
+exports.echo = catchCommonErrors(parent.sendToIpc(exports.projectService.echo));
+exports.quickInfo = catchCommonErrors(parent.sendToIpc(exports.projectService.quickInfo));
+exports.build = catchCommonErrors(parent.sendToIpc(exports.projectService.build));
+exports.errorsForFileFiltered = catchCommonErrors(parent.sendToIpc(exports.projectService.errorsForFileFiltered));
+exports.getCompletionsAtPosition = parent.sendToIpcOnlyLast(exports.projectService.getCompletionsAtPosition, {
     completions: [],
     endsInPunctuation: false
 });
-exports.emitFile = catchCommonErrors(parent.sendToIpc(projectService.emitFile));
-exports.formatDocument = catchCommonErrors(parent.sendToIpc(projectService.formatDocument));
-exports.formatDocumentRange = catchCommonErrors(parent.sendToIpc(projectService.formatDocumentRange));
-exports.getDefinitionsAtPosition = catchCommonErrors(parent.sendToIpc(projectService.getDefinitionsAtPosition));
-exports.updateText = catchCommonErrors(parent.sendToIpc(projectService.updateText));
-exports.editText = catchCommonErrors(parent.sendToIpc(projectService.editText));
-exports.errorsForFile = catchCommonErrors(parent.sendToIpc(projectService.errorsForFile));
-exports.getSignatureHelps = catchCommonErrors(parent.sendToIpc(projectService.getSignatureHelps));
-exports.getRenameInfo = catchCommonErrors(parent.sendToIpc(projectService.getRenameInfo));
-exports.getRelativePathsInProject = catchCommonErrors(parent.sendToIpc(projectService.getRelativePathsInProject));
-exports.debugLanguageServiceHostVersion = parent.sendToIpc(projectService.debugLanguageServiceHostVersion);
-exports.getProjectFileDetails = parent.sendToIpc(projectService.getProjectFileDetails);
-exports.getNavigationBarItems = parent.sendToIpc(projectService.getNavigationBarItems);
-exports.getNavigateToItems = parent.sendToIpc(projectService.getNavigateToItems);
-exports.getReferences = parent.sendToIpc(projectService.getReferences);
-exports.getAST = parent.sendToIpc(projectService.getAST);
-exports.getASTFull = parent.sendToIpc(projectService.getASTFull);
-exports.getDependencies = parent.sendToIpc(projectService.getDependencies);
-exports.getQuickFixes = parent.sendToIpc(projectService.getQuickFixes);
-exports.applyQuickFix = parent.sendToIpc(projectService.applyQuickFix);
-exports.getOutput = parent.sendToIpc(projectService.getOutput);
-exports.softReset = parent.sendToIpc(projectService.softReset);
-exports.getRenameFilesRefactorings = parent.sendToIpc(projectService.getRenameFilesRefactorings);
+exports.emitFile = catchCommonErrors(parent.sendToIpc(exports.projectService.emitFile));
+exports.formatDocument = catchCommonErrors(parent.sendToIpc(exports.projectService.formatDocument));
+exports.formatDocumentRange = catchCommonErrors(parent.sendToIpc(exports.projectService.formatDocumentRange));
+exports.getDefinitionsAtPosition = catchCommonErrors(parent.sendToIpc(exports.projectService.getDefinitionsAtPosition));
+exports.updateText = catchCommonErrors(parent.sendToIpc(exports.projectService.updateText));
+exports.editText = catchCommonErrors(parent.sendToIpc(exports.projectService.editText));
+exports.errorsForFile = catchCommonErrors(parent.sendToIpc(exports.projectService.errorsForFile));
+exports.getSignatureHelps = catchCommonErrors(parent.sendToIpc(exports.projectService.getSignatureHelps));
+exports.getRenameInfo = catchCommonErrors(parent.sendToIpc(exports.projectService.getRenameInfo));
+exports.getRelativePathsInProject = catchCommonErrors(parent.sendToIpc(exports.projectService.getRelativePathsInProject));
+exports.debugLanguageServiceHostVersion = parent.sendToIpc(exports.projectService.debugLanguageServiceHostVersion);
+exports.getProjectFileDetails = parent.sendToIpc(exports.projectService.getProjectFileDetails);
+exports.getNavigationBarItems = parent.sendToIpc(exports.projectService.getNavigationBarItems);
+exports.getNavigateToItems = parent.sendToIpc(exports.projectService.getNavigateToItems);
+exports.getReferences = parent.sendToIpc(exports.projectService.getReferences);
+exports.getAST = parent.sendToIpc(exports.projectService.getAST);
+exports.getASTFull = parent.sendToIpc(exports.projectService.getASTFull);
+exports.getDependencies = parent.sendToIpc(exports.projectService.getDependencies);
+exports.getQuickFixes = parent.sendToIpc(exports.projectService.getQuickFixes);
+exports.applyQuickFix = parent.sendToIpc(exports.projectService.applyQuickFix);
+exports.getOutput = parent.sendToIpc(exports.projectService.getOutput);
+exports.softReset = parent.sendToIpc(exports.projectService.softReset);
+exports.getRenameFilesRefactorings = parent.sendToIpc(exports.projectService.getRenameFilesRefactorings);
 var queryParent = require('./queryParent');
 parent.registerAllFunctionsExportedFromAsResponders(queryParent);

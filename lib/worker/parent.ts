@@ -60,7 +60,7 @@ function catchCommonErrors<Query, Response>(func: workerLib.QRFunction<Query, Re
 }
 
 ///ts:import=projectService
-import projectService = require('../main/lang/projectService'); ///ts:import:generated
+export import projectService = require('../main/lang/projectService'); ///ts:import:generated
 
 export var echo = catchCommonErrors(parent.sendToIpc(projectService.echo));
 export var quickInfo = catchCommonErrors(parent.sendToIpc(projectService.quickInfo));
